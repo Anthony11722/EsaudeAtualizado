@@ -1,0 +1,13 @@
+<div class="container__lista">
+  @for (paciente of pacientes; track $index) {
+    <div class="card__pessoa">
+      <div class="detalhes__pessoa">
+        <h5>Nome: {{ paciente.nome }} - CPF: {{ paciente.cpf }}</h5>
+        <p>{{ paciente.email }}</p>
+      </div>
+      <button mat-flat-button class="botao" (click)="verFichaMedica(paciente.id)">Ver Ficha Médica</button>
+    </div>
+  } @empty {
+    <p class="lista-vazia">A lista de paciente está vázia</p>
+  }
+</div>

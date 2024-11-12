@@ -1,0 +1,43 @@
+<div class="container__home">
+  <div class="container__pacientes">
+    <section class="lista__paciente">
+      <h2>Pacientes Agendados no dia {{ selected().toLocaleDateString() }}</h2>
+      <div class="lista__agendamentos">
+        @for (agendamento of agendamentos; track $index) {
+          <div class="linha__agendamento">
+            <div class="linha__agendamento__esquerda">
+              <p><strong>{{ agendamento.nomePaciente }}</strong></p>
+              <p class="agendamento__nome__medico">{{ agendamento.nomeMedico }}</p>
+            </div>
+            <div class="linha__agendamento__direita">
+              <p>{{ agendamento.horario }}</p>
+              <p>{{ agendamento.data }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+    <section class="lista__notificacao">
+      <h2>Notificações</h2>
+      <div class="lista__novas__notificacoes">
+        @for (notificacao of notificacoes; track $index) {
+          <div class="linha__notificacao">
+            <div class="linha__notificacao__esquerda">
+              <p><strong>{{ notificacao.nomePaciente }}</strong></p>
+              <p class="detalhes__notificacao">
+                {{ notificacao.nomeMedico }} |
+                {{ notificacao.data }} |
+                {{ notificacao.horario }}
+              </p>
+            </div>
+            <div class="linha__notificacao__direita">
+              <span (click)="confirmarNotificacao(notificacao.id)"><mat-icon fontIcon="check"></mat-icon></span>
+              <span (click)="recusarNotificacao(notificacao.id)"><mat-icon fontIcon="close"></mat-icon></span>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+  </div>
+  <mat-calendar ngSkipHydration [(selected)]="selected"></mat-calendar>
+</div>

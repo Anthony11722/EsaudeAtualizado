@@ -1,0 +1,112 @@
+.container__home {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  padding: 0 8%;
+  .container__pacientes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    height: 100%;
+    width: 100%;
+    padding: 24px 0;
+    .lista__paciente {
+      width: 70%;
+      height: 70%;
+      border-radius: 20px;
+      background-color: #FFF;
+      box-shadow: 4px 4px 16px rgba($color: #000000, $alpha: 0.2);
+      padding: 20px 32px;
+      h2 {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+      }
+      .lista__agendamentos {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .linha__agendamento {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          .linha__agendamento__esquerda {
+            display: flex;
+            flex-direction: column;
+            p {
+              margin: 0;
+              font-family: "Inter", sans-serif;
+              strong {
+                font-weight: 700;
+                font-size: 16px;
+              }
+            }
+            .agendamento__nome__medico {
+              font-size: 14px;
+              color: rgba($color: #000000, $alpha: 0.5);
+            }
+          }
+          .linha__agendamento__direita {
+            p {
+              margin: 0;
+              color: #006C5B;
+              font-family: "Inter", sans-serif;
+            }
+          }
+        }
+      }
+    }
+    .lista__notificacao {
+      width: 70%;
+      height: 70%;
+      border-radius: 20px;
+      background-color: #FFF;
+      box-shadow: 4px 4px 16px rgba($color: #000000, $alpha: 0.2);
+      padding: 20px 32px;
+      h2 {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+      }
+      .lista__novas__notificacoes {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .linha__notificacao {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .linha__notificacao__esquerda {
+            p {
+              margin: 0;
+              font-family: "Inter", sans-serif;
+              strong {
+                font-weight: 700;
+                font-size: 16px;
+              }
+            }
+            .detalhes__notificacao {
+              font-size: 14px;
+              color: rgba($color: #000000, $alpha: 0.5);
+            }
+          }
+          .linha__notificacao__direita {
+            display: flex;
+            gap: 24px;
+            span {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  mat-calendar {
+    width: 60%;
+  }
+}
+

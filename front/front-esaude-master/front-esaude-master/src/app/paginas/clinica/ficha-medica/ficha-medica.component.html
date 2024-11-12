@@ -1,0 +1,100 @@
+<div class="ficha-medica">
+  <div class="seus-dados">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+    <mat-expansion-panel-header>
+      <mat-panel-title> Ver </mat-panel-title>
+      <mat-panel-description>
+        Seus Dados {{panelOpenState() ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    @for (dadoPessoais of dadosPessoais; track $index) {
+      <p><strong>Nome</strong></p>
+      <p>{{ dadoPessoais.nome }}</p>
+      <p><strong>Sobrenome</strong></p>
+      <p>{{ dadoPessoais.sobrenome }}</p>
+      <p><strong>CPF</strong></p>
+      <p>{{ dadoPessoais.cpf }}</p>
+      <p><strong>E-mail</strong></p>
+      <p>{{ dadoPessoais.email }}</p>
+      <p><strong>Telefone</strong></p>
+      <p>{{ dadoPessoais.telefone }}</p>
+      <p><strong>CEP</strong></p>
+      <p>{{ dadoPessoais.cep }}</p>
+      <p><strong>Rua</strong></p>
+      <p>{{ dadoPessoais.rua }}</p>
+      <p><strong>Número</strong></p>
+      <p>{{ dadoPessoais.numero }}</p>
+      <p><strong>Bairro</strong></p>
+      <p>{{ dadoPessoais.bairro }}</p>
+    }
+    <button mat-flat-button class="botao">Editar</button>
+  </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="consultas">
+    <div class="proxima-consulta">
+      <p>Próxima consulta</p>
+      @for (retorno of retornos; track $index) {
+        <div class="historico-consultas">
+          <div class="cabecalho-consulta">
+            <p>Consulta {{ retorno.id}}</p>
+            <p>Especialidade <span>{{ retorno.especialidade}}</span></p>
+            <p>Médico <span>{{retorno.medico}}</span></p>
+            <button mat-flat-button class="botao">Remarcar</button>
+            <button mat-flat-button class="botao">Cancelar</button>
+            <mat-divider></mat-divider>
+          </div>
+          <div class="corpo-consulta">
+            <ul>
+              <li>
+                Consulta Inicial em <span>{{retorno.data}}</span>
+                 ás <span>{{retorno.hora}}</span>
+              </li>
+              <li>
+                <span>{{retorno.documentos}}</span>
+              </li>
+            </ul>
+            <button mat-flat-button class="botao">Inserir documentação</button>
+          </div>
+        </div>
+      } @empty {
+        <p class="lista-vazia">Próxima consulta tá vázio</p>
+      }
+    </div>
+    <p>Histórico de consultas</p>
+    @for (consulta of listaConsultas; track $index) {
+      <div class="historico-consultas">
+        <div class="cabecalho-consulta">
+          <p>Consulta {{ consulta.id}}</p>
+          <p>Especialidade <span>{{ consulta.especialidade}}</span></p>
+          <p>Médico <span>{{consulta.medico}}</span></p>
+          <mat-divider></mat-divider>
+        </div>
+        <div class="corpo-consulta">
+          <ul>
+            <li>
+              Consulta Inicial em <span>{{consulta.data}}</span>
+               ás <span>{{consulta.hora}}</span>
+            </li>
+            <li>
+              <span>{{consulta.documentos}}</span>
+            </li>
+          </ul>
+          <button mat-flat-button class="botao">Inserir documentação</button>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="exames-laudos">
+    <strong>Documentação das consultas</strong>
+    @for (documento of documentos; track $index) {
+      <ul>
+        <li><span>{{documento.documentos}}</span> <br> de consulta 0001 - {{documento.data}}</li>
+      </ul>
+    }
+  </div>
+
+</div>

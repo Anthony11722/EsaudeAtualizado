@@ -1,0 +1,22 @@
+<main>
+  <section>
+    <img src="/logo.png" alt="logo" class="logo">
+    <h1>LOGIN</h1>
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>mail</mat-icon>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+        <mat-error>O email é obrigatório</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="password" type="password">
+        <mat-error>A senha é obrigatória</mat-error>
+      </mat-form-field>
+      <button [disabled]="!loginForm.valid" (click)="fazerLogin()" mat-flat-button>Entrar</button>
+      <a routerLink="recuperar-senha">Esqueci minha senha</a>
+    </form>
+  </section>
+</main>

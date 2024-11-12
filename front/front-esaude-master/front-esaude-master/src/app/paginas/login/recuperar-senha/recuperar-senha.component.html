@@ -1,0 +1,16 @@
+<main>
+  <section>
+    <img src="/logo.png" alt="logo" class="logo">
+    <h1>RECUPERAR SENHA</h1>
+    <form>
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>mail</mat-icon>
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="email" type="email">
+        <mat-error>O email é obrigatório</mat-error>
+      </mat-form-field>
+      <button mat-flat-button>Enviar Token</button>
+      <a routerLink="">Fazer login</a>
+    </form>
+  </section>
+</main>

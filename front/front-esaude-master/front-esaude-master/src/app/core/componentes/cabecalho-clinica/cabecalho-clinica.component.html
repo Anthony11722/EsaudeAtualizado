@@ -1,0 +1,55 @@
+<header>
+  <div class="menu-pesquisa">
+    <img src="logo-cabecalho.png" alt="Logo da clinica">
+
+    <mat-form-field appearance="outline">
+      <mat-icon matPrefix>search</mat-icon>
+      <mat-label>Pesquisar</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+  </div>
+
+  <div class="icones-rotas">
+    <button
+      routerLink="/clinica"
+      class="botao"
+      [ngClass]="{'botao-ativo': rotaSelecionada() == 'clinica'}"
+    >
+      <img src="casa.svg" alt="principal" class="icones-menu">
+    </button>
+
+    <button
+      routerLink="/clinica/cadastro"
+      class="botao"
+      [ngClass]="{'botao-ativo': rotaSelecionada() == 'clinica/cadastro'}"
+    >
+      <img src="add-pessoas.svg" alt="cadastrar" class="icones-menu">
+    </button>
+
+    <button
+      routerLink="/clinica/agendamento"
+      class="botao"
+      [ngClass]="{'botao-ativo': rotaSelecionada() == 'clinica/agendamento'}"
+    >
+      <img src="agendar.svg" alt="agendamento" class="icones-menu">
+    </button>
+  </div>
+
+  <div class="icones-esquerda">
+    <button
+      routerLink="/clinica/lista-pacientes"
+      class="botao"
+      [ngClass]="{'botao-ativo': rotaSelecionada() == 'clinica/lista-pacientes'}"
+    >
+      <img src="listar-paciente.svg" alt="icone-lista-paciente" class="icones-sair">
+    </button>
+
+    <button
+      (click)="sair()"
+      class="botao"
+    >
+      <img src="sair.png" alt="icone-sair" class="icones-sair">
+    </button>
+  </div>
+</header>
+
